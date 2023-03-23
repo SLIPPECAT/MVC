@@ -4,6 +4,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @Controller
 @RequestMapping("/sample")
 @Log4j2
@@ -30,6 +32,9 @@ public class SampleController {
         log.info("name: "+name);
         log.info("age: "+age);
     }
-
-
+    // 예시 URL: http://localhost:8080/sample/ex03?data=12&data=안녕&data=하세요
+    @GetMapping("/ex03")
+    public void ex03(@RequestParam("data") ArrayList<String> datas){
+        log.info("datas : " + datas);
+    }
 }
